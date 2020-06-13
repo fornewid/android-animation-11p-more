@@ -2,17 +2,17 @@
 
 간단한 안드로이드 애니메이션을 적용해보는 코드랩입니다.
 
-### Before
+### Start
 
 | Splash, OnBoarding                                           | Main, Detail                                                 | Profile, Viewer                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/before_01.gif' /> | <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/before_02.gif' /> | <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/before_03.gif' /> |
+| <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/start_01.gif' /> | <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/start_02.gif' /> | <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/start_03.gif' /> |
 
-### After
+### End
 
 | Splash, OnBoarding                                           | Main, Detail                                                 | Profile, Viewer                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/after_01.gif' /> | <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/after_02.gif' /> | <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/after_03.gif' /> |
+| <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/end_01.gif' /> | <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/end_02.gif' /> | <img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/end_03.gif' /> |
 
 ## License
 
