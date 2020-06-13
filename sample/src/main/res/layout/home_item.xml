@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
-    <soup.animation.sample.widget.AnimatedImageView
+    <ImageView
         android:id="@+id/new_badge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,8 +43,9 @@
         app:layout_constraintBottom_toBottomOf="@id/title"
         app:layout_constraintRight_toLeftOf="@id/more"
         app:layout_constraintTop_toTopOf="@id/title"
-        app:srcCompat="@drawable/anim_new"
+        app:srcCompat="@drawable/ic_new"
         tools:visibility="visible" />
+    <!-- TODO: app:srcCompat="@drawable/anim_new" -->
 
     <ImageView
         android:id="@+id/more"

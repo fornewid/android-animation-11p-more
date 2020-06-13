@@ -3,13 +3,10 @@ package soup.animation.sample
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.transition.*
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -23,13 +20,6 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.sharedElementEnterTransition = TransitionSet().apply {
-            ordering = TransitionSet.ORDERING_TOGETHER
-            addTransition(ChangeBounds().apply { pathMotion = ArcMotion() })
-            addTransition(ChangeTransform())
-            addTransition(ChangeClipBounds())
-            addTransition(ChangeImageTransform())
-        }
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
@@ -57,8 +47,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun Activity.navigateToProfile(view: View) {
         val intent = Intent(this, ProfileActivity::class.java)
-        val options = ActivityOptionsCompat
-            .makeSceneTransitionAnimation(this, view, view.transitionName)
-        ActivityCompat.startActivity(this, intent, options.toBundle())
+        //TODO: Shared Elements
+        //val options = ActivityOptionsCompat
+        //    .makeSceneTransitionAnimation(this, view, view.transitionName)
+        //ActivityCompat.startActivity(this, intent, options.toBundle())
+        startActivity(intent)
     }
 }

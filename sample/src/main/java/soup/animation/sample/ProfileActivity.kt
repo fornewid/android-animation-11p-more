@@ -2,21 +2,15 @@ package soup.animation.sample
 
 import android.content.Intent
 import android.os.Bundle
-import android.transition.*
-import android.transition.TransitionSet.ORDERING_TOGETHER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityOptionsCompat
-import androidx.core.transition.doOnEnd
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridItemAnimator
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.AppBarLayout
@@ -32,39 +26,50 @@ class ProfileActivity : AppCompatActivity() {
     private val viewModel: ProfileViewModel by viewModels()
 
     private val listener = AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-        binding.header.root.progress = -verticalOffset / appBarLayout.totalScrollRange.toFloat()
+        val progress = -verticalOffset / appBarLayout.totalScrollRange.toFloat()
+        // TODO: MotionLayout
+        // binding.header.root.progress = progress
+        binding.header.root.alpha = 1f - progress
+        binding.collapse.alpha = progress
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.sharedElementEnterTransition = TransitionSet().apply {
-            ordering = ORDERING_TOGETHER
-            addTransition(ChangeBounds().apply { pathMotion = ArcMotion() })
-            addTransition(ChangeTransform())
-            addTransition(ChangeClipBounds())
-            addTransition(ChangeImageTransform())
-            doOnEnd {
-                binding.header.profileNickname.animateSlideUp(100)
-                binding.header.profileDescription.animateSlideUp(200)
-            }
-        }
+        // TODO: Shared Elements
+        //window.sharedElementEnterTransition = TransitionSet().apply {
+        //    ordering = ORDERING_TOGETHER
+        //    addTransition(ChangeBounds().apply { pathMotion = ArcMotion() })
+        //    addTransition(ChangeTransform())
+        //    addTransition(ChangeClipBounds())
+        //    addTransition(ChangeImageTransform())
+        //    doOnEnd {
+        //        binding.header.profileNickname.animateSlideUp(100)
+        //        binding.header.profileDescription.animateSlideUp(200)
+        //    }
+        //}
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         val adapter = Adapter { view, resId ->
             val intent = Intent(this, ViewerActivity::class.java)
             intent.putExtra("resId", resId)
-            val options = ActivityOptionsCompat
-                .makeSceneTransitionAnimation(this, view, view.transitionName)
-            ActivityCompat.startActivity(this, intent, options.toBundle())
+            // TODO: Shared Elements
+            //val options = ActivityOptionsCompat
+            //    .makeSceneTransitionAnimation(this, view, view.transitionName)
+            //ActivityCompat.startActivity(this, intent, options.toBundle())
+            startActivity(intent)
         }
         binding.recyclerView.let { view ->
-            val spanCount = (view.layoutManager as? GridLayoutManager)?.spanCount ?: 1
-            view.itemAnimator = GridItemAnimator(spanCount = spanCount)
+            //TODO: ItemAnimator
+            //val spanCount = (view.layoutManager as? GridLayoutManager)?.spanCount ?: 1
+            //view.itemAnimator = GridItemAnimator(spanCount = spanCount)
             view.adapter = adapter
         }
         viewModel.uiModel.observe(this, Observer {
             adapter.submitList(it.items)
             binding.loadingView.isVisible = it.loading
+
+            binding.header.profileNickname.isGone = it.loading
+            binding.header.profileDescription.isGone = it.loading
         })
     }
 

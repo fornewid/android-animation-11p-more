@@ -2,8 +2,6 @@ package soup.animation.sample
 
 import android.content.Context
 import android.os.Bundle
-import android.transition.*
-import android.view.animation.OvershootInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.app.NotificationCompat
@@ -19,14 +17,15 @@ class ViewerActivity : AppCompatActivity() {
     private val binding by viewBindings(ViewerActivityBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.sharedElementEnterTransition = TransitionSet().apply {
-            interpolator = OvershootInterpolator(0.7f)
-            ordering = TransitionSet.ORDERING_TOGETHER
-            addTransition(ChangeBounds().apply { pathMotion = ArcMotion() })
-            addTransition(ChangeTransform())
-            addTransition(ChangeClipBounds())
-            addTransition(ChangeImageTransform())
-        }
+        // TODO: Shared Elements
+        //window.sharedElementEnterTransition = TransitionSet().apply {
+        //    interpolator = OvershootInterpolator(0.7f)
+        //    ordering = TransitionSet.ORDERING_TOGETHER
+        //    addTransition(ChangeBounds().apply { pathMotion = ArcMotion() })
+        //    addTransition(ChangeTransform())
+        //    addTransition(ChangeClipBounds())
+        //    addTransition(ChangeImageTransform())
+        //}
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
@@ -85,7 +84,8 @@ class ViewerActivity : AppCompatActivity() {
                 setGuidelinePercent(R.id.fold_guideline, 1f)
             }
         }
-        TransitionManager.beginDelayedTransition(layout)
+        // TODO: Transition
+        //TransitionManager.beginDelayedTransition(layout)
         constraintSet.applyTo(layout)
     }
 
@@ -100,11 +100,12 @@ class DownloadWorker(
 ) : CoroutineWorker(appContext, params) {
 
     override suspend fun doWork(): Result {
+        //TODO: animation-list
         val notification = NotificationCompat
             .Builder(applicationContext, NotificationChannels.NOTIFICATION)
             .setContentTitle("Download")
             .setContentText("Animated icon will be shown!")
-            .setSmallIcon(R.drawable.stat_sys_download)
+            .setSmallIcon(R.drawable.stat_sys_download_anim0)
             .setProgress(0, 0, true)
             .build()
         setForeground(ForegroundInfo(1, notification))

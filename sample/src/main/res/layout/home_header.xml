@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!-- TODO: MotionLayout -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    app:layoutDescription="@xml/home_header_scene">
+    android:layout_height="150dp">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/collapse_guideline"
@@ -39,12 +37,12 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="6dp"
-        android:background="?selectableItemBackgroundBorderless"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/avd_search" />
+        app:srcCompat="@drawable/ic_home_search" />
+    <!-- TODO: AVD -->
+    <!-- TODO: selectableItemBackgroundBorderless -->
 
     <View
         android:id="@+id/divider"
@@ -56,4 +54,4 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

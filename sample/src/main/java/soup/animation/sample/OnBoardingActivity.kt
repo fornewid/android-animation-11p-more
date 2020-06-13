@@ -24,7 +24,7 @@ class OnBoardingActivity : AppCompatActivity() {
         override fun onPageSelected(position: Int) {
             binding.pagerDescription.run {
                 text = "OnBoarding Description ${position + 1}"
-                animateSlideUp()
+                //TODO: animateSlideUp()
             }
             binding.pagerIndicator01.isActivated = position == 0
             binding.pagerIndicator02.isActivated = position == 1
@@ -34,7 +34,7 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
+        //TODO: overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 

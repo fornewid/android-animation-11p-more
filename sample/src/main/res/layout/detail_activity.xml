@@ -49,10 +49,10 @@
         android:background="@drawable/fab"
         android:elevation="10dp"
         android:scaleType="centerInside"
-        android:stateListAnimator="@animator/sla_fab"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@drawable/asld_favorite" />
+    <!-- TODO: android:stateListAnimator="@animator/sla_fab"-->
 
     <Space
         android:id="@+id/fab_center"

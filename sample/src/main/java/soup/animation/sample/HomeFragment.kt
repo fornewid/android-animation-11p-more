@@ -12,7 +12,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.HomeItemAnimator
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.NO_POSITION
@@ -31,31 +30,37 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val listener = AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
         val progress = -verticalOffset / appBarLayout.totalScrollRange.toFloat()
-        binding.header.root.progress = progress
-        savd?.currentPlayTime = (100 * progress).toLong()
+        //TODO: MotionLayout & SAVD
+        //binding.header.root.progress = progress
+        //savd?.currentPlayTime = (100 * progress).toLong()
         isTop = progress <= 0f
+        binding.header.root.alpha = 1f - progress
+        binding.collapse.alpha = progress
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = HomeFragmentBinding.bind(view).apply {
-            SeekableAnimatedVectorDrawable.create(view.context, R.drawable.avd_search)?.let {
-                savd = it
-                header.icon.setImageDrawable(it)
-            }
+            //TODO: SAVD
+            //SeekableAnimatedVectorDrawable.create(view.context, R.drawable.avd_search)?.let {
+            //    savd = it
+            //    header.icon.setImageDrawable(it)
+            //}
             header.icon.setOnClickListener {
                 if (isTop) {
                     Toast.makeText(it.context, "Search clicked!", Toast.LENGTH_SHORT).show()
-                } else {
-                    appBar.setExpanded(true, true)
-                    recyclerView.smoothScrollToPosition(0)
                 }
+            }
+            collapseIcon.setOnClickListener {
+                appBar.setExpanded(true, true)
+                recyclerView.smoothScrollToPosition(0)
             }
 
             val adapter = Adapter { uiModel ->
                 activity?.navigateToDetail(uiModel)
             }
-            recyclerView.itemAnimator = HomeItemAnimator().apply { addDuration = 200 }
+            // TODO: itemAnimator
+            //recyclerView.itemAnimator = HomeItemAnimator().apply { addDuration = 200 }
             recyclerView.adapter = adapter
 
             viewModel.uiModel.observe(viewLifecycleOwner, Observer {

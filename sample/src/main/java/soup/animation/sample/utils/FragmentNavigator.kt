@@ -30,9 +30,10 @@ class FragmentNavigator(
             .disallowAddToBackStack()
             .setReorderingAllowed(true)
 
-        if (previousTag != null) {
-            fragmentTransaction.setCustomAnimations(enter, exit)
-        }
+        // TODO: Fragment Animations
+        //if (previousTag != null) {
+        //    fragmentTransaction.setCustomAnimations(enter, exit)
+        //}
 
         if (previousTag != null) {
             val previous = saveFragment(previousTag)

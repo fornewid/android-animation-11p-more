@@ -29,26 +29,41 @@ class SettingsFragment : Fragment(R.layout.settings_fragment) {
                     }
                 }
             }
-
-            val panel = buttonPanel.springAnimationOf(DynamicAnimation.TRANSLATION_X)
-            val icon1 = icon01.springAnimationOf(DynamicAnimation.TRANSLATION_X)
-            val icon2 = icon02.springAnimationOf(DynamicAnimation.TRANSLATION_X)
-            val icon3 = icon03.springAnimationOf(DynamicAnimation.TRANSLATION_X)
             arrow.setOnClickListener {
                 it.isSelected = it.isSelected.not()
                 if (it.isSelected) {
-                    panel.animateToFinalPosition(0f)
-                    icon1.animateToFinalPosition(0f)
-                    icon2.animateToFinalPosition(0f)
-                    icon3.animateToFinalPosition(0f)
+                    buttonPanel.translationX = 0f
+                    icon01.translationX = 0f
+                    icon02.translationX = 0f
+                    icon03.translationX = 0f
                 } else {
-                    panel.animateToFinalPosition(resources.getDimension(R.dimen.settings_button_panel_translation_x))
+                    buttonPanel.translationX = resources.getDimension(R.dimen.settings_button_panel_translation_x)
                     val transX = resources.getDimension(R.dimen.settings_button_icon_translation_x)
-                    icon1.animateToFinalPosition(transX)
-                    icon2.animateToFinalPosition(transX)
-                    icon3.animateToFinalPosition(transX)
+                    icon01.translationX = transX
+                    icon02.translationX = transX
+                    icon03.translationX = transX
                 }
             }
+            //TODO: Physics-based animation
+            //val panel = buttonPanel.springAnimationOf(DynamicAnimation.TRANSLATION_X)
+            //val icon1 = icon01.springAnimationOf(DynamicAnimation.TRANSLATION_X)
+            //val icon2 = icon02.springAnimationOf(DynamicAnimation.TRANSLATION_X)
+            //val icon3 = icon03.springAnimationOf(DynamicAnimation.TRANSLATION_X)
+            //arrow.setOnClickListener {
+            //    it.isSelected = it.isSelected.not()
+            //    if (it.isSelected) {
+            //        panel.animateToFinalPosition(0f)
+            //        icon1.animateToFinalPosition(0f)
+            //        icon2.animateToFinalPosition(0f)
+            //        icon3.animateToFinalPosition(0f)
+            //    } else {
+            //        panel.animateToFinalPosition(resources.getDimension(R.dimen.settings_button_panel_translation_x))
+            //        val transX = resources.getDimension(R.dimen.settings_button_icon_translation_x)
+            //        icon1.animateToFinalPosition(transX)
+            //        icon2.animateToFinalPosition(transX)
+            //        icon3.animateToFinalPosition(transX)
+            //    }
+            //}
         }
     }
 
@@ -69,15 +84,19 @@ class SettingsFragment : Fragment(R.layout.settings_fragment) {
 
     private fun Activity.navigateToProfile(view: View) {
         val intent = Intent(this, ProfileActivity::class.java)
-        val options = ActivityOptionsCompat
-            .makeSceneTransitionAnimation(this, view, view.transitionName)
-        ActivityCompat.startActivity(this, intent, options.toBundle())
+        // TODO: Shared Elements
+        //val options = ActivityOptionsCompat
+        //    .makeSceneTransitionAnimation(this, view, view.transitionName)
+        //ActivityCompat.startActivity(this, intent, options.toBundle())
+        startActivity(intent)
     }
 
     private fun Activity.navigateToLogin(view: View) {
         val intent = Intent(this, LoginActivity::class.java)
-        val options = ActivityOptionsCompat
-            .makeSceneTransitionAnimation(this, view, view.transitionName)
-        ActivityCompat.startActivity(this, intent, options.toBundle())
+        // TODO: Shared Elements
+        //val options = ActivityOptionsCompat
+        //    .makeSceneTransitionAnimation(this, view, view.transitionName)
+        //ActivityCompat.startActivity(this, intent, options.toBundle())
+        startActivity(intent)
     }
 }
