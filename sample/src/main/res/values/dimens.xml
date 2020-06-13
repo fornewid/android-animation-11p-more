@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fake_inset_size">24dp</dimen>
+    <dimen name="settings_button_panel_translation_x">160dp</dimen>
+    <dimen name="settings_button_icon_translation_x">48dp</dimen>
+</resources>

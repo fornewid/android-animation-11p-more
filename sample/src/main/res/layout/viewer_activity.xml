@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@android:color/black"
+    tools:context=".ViewerActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/inset_top_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="0dp"
+        tools:layout_constraintGuide_begin="@dimen/fake_inset_size" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/inset_left_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="0dp"
+        tools:layout_constraintGuide_begin="@dimen/fake_inset_size" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/inset_right_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="0dp"
+        tools:layout_constraintGuide_end="@dimen/fake_inset_size" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/bottom_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="fold_guideline, inset_bottom_guideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/inset_bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="0dp"
+        tools:layout_constraintGuide_end="@dimen/fake_inset_size" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fold_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1"
+        tools:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:transitionName="@string/transition_name_photo"
+        app:layout_constraintBottom_toBottomOf="@id/bottom_barrier"
+        app:layout_constraintLeft_toLeftOf="@id/inset_left_guideline"
+        app:layout_constraintRight_toRightOf="@id/inset_right_guideline"
+        app:layout_constraintTop_toTopOf="@id/inset_top_guideline"
+        tools:src="@drawable/img_01" />
+
+    <soup.animation.sample.widget.CheckedImageView
+        android:id="@+id/foldable_device_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="24dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:checked="false"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/selector_device_foldable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/photo_mode_button"
+        tools:checked="true" />
+
+    <soup.animation.sample.widget.CheckedImageView
+        android:id="@+id/photo_mode_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="24dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:checked="false"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/selector_photo_mode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/foldable_device_button"
+        app:layout_constraintRight_toLeftOf="@id/photo_save_button"
+        tools:checked="true" />
+
+    <ImageView
+        android:id="@+id/photo_save_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="24dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/selector_photo_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/photo_mode_button"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

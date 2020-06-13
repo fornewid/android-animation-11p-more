@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <soup.animation.sample.widget.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/darker_gray"
+        android:scaleType="centerCrop"
+        android:transitionName="@string/transition_name_profile"
+        app:layout_constraintBottom_toTopOf="@id/nickname_edit_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/nickname_edit_text"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:hint="Enter nickname"
+        app:layout_constraintBottom_toTopOf="@id/login_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_image" />
+
+    <FrameLayout
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/button"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@id/skip_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nickname_edit_text">
+
+        <TextView
+            android:id="@+id/login_label"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:text="로그인"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/login_progress"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@android:color/white"
+            android:visibility="invisible"
+            tools:visibility="gone" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/skip_button"
+        android:layout_width="100dp"
+        android:layout_height="56dp"
+        android:layout_margin="8dp"
+        android:background="?selectableItemBackground"
+        android:gravity="center"
+        android:text="Skip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

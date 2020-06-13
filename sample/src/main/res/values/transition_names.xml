@@ -1,0 +1,4 @@
+<resources>
+    <string name="transition_name_profile" translatable="false">profile</string>
+    <string name="transition_name_photo" translatable="false">photo</string>
+</resources>

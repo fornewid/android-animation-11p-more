@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+    <View
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?colorSurface"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/thumbnail_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:transitionName="@string/transition_name_photo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextAppearance.MaterialComponents.Headline4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:text="StateListAnimator Example"
+        android:textColor="?colorOnSurface"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/favorite_fab"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_margin="24dp"
+        android:background="@drawable/fab"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+        android:stateListAnimator="@animator/sla_fab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/asld_favorite" />
+
+    <Space
+        android:id="@+id/fab_center"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/favorite_fab"
+        app:layout_constraintLeft_toLeftOf="@id/favorite_fab"
+        app:layout_constraintRight_toRightOf="@id/favorite_fab"
+        app:layout_constraintTop_toTopOf="@id/favorite_fab"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <soup.animation.sample.widget.HeartAnimationView
+        android:id="@+id/animated_view"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:elevation="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/fab_center"
+        app:layout_constraintLeft_toLeftOf="@id/favorite_fab"
+        app:layout_constraintRight_toRightOf="@id/favorite_fab" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

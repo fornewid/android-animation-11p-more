@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true">
+        <set android:ordering="together">
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:interpolator="@android:interpolator/fast_out_slow_in"
+                android:propertyName="translationZ"
+                android:startOffset="100"
+                android:valueTo="8dp" />
+        </set>
+    </item>
+    <item>
+        <set android:ordering="together">
+            <objectAnimator
+                android:duration="@android:integer/config_shortAnimTime"
+                android:interpolator="@android:interpolator/fast_out_slow_in"
+                android:propertyName="translationZ"
+                android:valueTo="0dp" />
+        </set>
+    </item>
+</selector>

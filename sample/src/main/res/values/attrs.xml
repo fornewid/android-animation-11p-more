@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnimatedImageView">
+        <attr name="allowAnimation" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="CheckedImageView">
+        <attr name="checked" format="boolean" />
+    </declare-styleable>
+</resources>
