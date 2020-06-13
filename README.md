@@ -4,7 +4,7 @@
 
 | Splash, OnBoarding | Main, Detail | Profile, Viewer |
 | ------------------ | ------------ | --------------- |
-| <img src='https://github.com/fornewid/android-animation-11p-more/tree/end/screenshots/preview_01.gif' /> | <img src='https://github.com/fornewid/android-animation-11p-more/tree/end/screenshots/preview_02.gif' /> | <img src='https://github.com/fornewid/android-animation-11p-more/tree/end/screenshots/preview_03.gif' /> |
+|<img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/preview_01.gif' />|<img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/preview_02.gif' />|<img width="300" src='https://github.com/fornewid/android-animation-11p-more/blob/end/screenshots/preview_03.gif' />|
 
 ## License
 
